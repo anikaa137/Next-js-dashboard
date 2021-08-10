@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+ 
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
@@ -20,11 +18,20 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import SVGICON from '../src/components/SvgIcon';
 import { Badge, Box, NotificationsIcon, Paper } from "@material-ui/core";
 import MailIcon from '@material-ui/icons/Mail';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import DashboardNavbar from "../src/components/Appbar";
+import {RiDashboardFill} from 'react-icons/ri';
+import {BsTabletLandscape} from 'react-icons/bs';
+import {FaRegStickyNote}  from 'react-icons/fa';
+import {GoDeviceDesktop} from 'react-icons/go';
+import {MdTouchApp} from 'react-icons/md';
+import {AiOutlineUser} from 'react-icons/ai'
+
+
+
+
 const drawerWidth = 120;
 
 const useStyles = makeStyles(theme => ({
@@ -113,6 +120,33 @@ export default function Demo(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const itemList = [
+    {
+      text: 'Dashboard',
+      icon: <RiDashboardFill />
+    },
+    {
+      text: 'Table',
+      icon: <BsTabletLandscape />
+    },
+    {
+      text: 'About',
+      icon: <GoDeviceDesktop />
+    },
+    {
+      text: 'Blog',
+      icon: <FaRegStickyNote />
+    },
+    {
+      text: 'AddContent',
+      icon: <MdTouchApp />
+    },
+    {
+      text: 'User',
+      icon: <AiOutlineUser />
+    }
+  ]
+
 
   const drawer = (
     <div className={classes.MuiListItem2}>
@@ -123,12 +157,13 @@ export default function Demo(props) {
         </Typography>
       </Box>
       <List>
-        {["Dashboard", "Table", "About", "Blog", "AddContent", "User"].map((text, index) => {
+      {itemList.map((item, index) => {
+          const {text, icon} = item;
           return (
             <Link href={`/${text}`} key={text} passHref >
               <ListItem className={classes.listContainer, router.asPath === '/' + text ? classes.Active : null}>
                 <ListItemIcon >
-                  {SVGICON[index]}
+                {icon}
                 </ListItemIcon>
                 <ListItemText primary={text} className={router.asPath === '/' + text ? classes.textSHow : classes.textOff} />
               </ListItem>
@@ -145,7 +180,7 @@ export default function Demo(props) {
 
   useEffect(() => {
     router.replace('/Dashboard')
-  }, []);
+  }, ['']);
 
 
   return (
