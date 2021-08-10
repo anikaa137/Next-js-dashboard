@@ -14,13 +14,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from '@material-ui/styles'
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import { Badge, Box, NotificationsIcon, Paper } from "@material-ui/core";
-import MailIcon from '@material-ui/icons/Mail';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import {Box} from "@material-ui/core";
 import DashboardNavbar from "../src/components/Appbar";
 import {RiDashboardFill} from 'react-icons/ri';
 import {BsTabletLandscape} from 'react-icons/bs';
