@@ -6,7 +6,7 @@ export default function Blog() {
     <Container maxWidth="sm">
 
       <div>
-        <h2>Blog Scetion</h2>
+        <h2>Blog Sceation</h2>
       </div>
     </Container>
 
