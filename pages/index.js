@@ -103,6 +103,10 @@ const useStyles = makeStyles(theme => ({
   },
   textOff: {
     display: 'none',
+  },
+  IconStyle:{
+    fontSize: '30px',
+    color: '#fff'
   }
 
 
@@ -162,8 +166,8 @@ export default function Demo(props) {
           return (
             <Link href={`/${text}`} key={text} passHref >
               <ListItem className={classes.listContainer, router.asPath === '/' + text ? classes.Active : null}>
-                <ListItemIcon >
-                {icon}
+              <ListItemIcon className={classes.IconStyle}>
+                  {icon}
                 </ListItemIcon>
                 <ListItemText primary={text} className={router.asPath === '/' + text ? classes.textSHow : classes.textOff} />
               </ListItem>
